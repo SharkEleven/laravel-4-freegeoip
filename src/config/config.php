@@ -8,6 +8,7 @@ return array(
 	'timeout' => 30,
 	
 	// IP address overrides. Defaults localhost to Google
+	'local' => '127.0.0.1',
 	'overrides' => array(
 	  '127.0.0.1' => '64.233.160.0',
 	  'localhost' => '64.233.160.0',

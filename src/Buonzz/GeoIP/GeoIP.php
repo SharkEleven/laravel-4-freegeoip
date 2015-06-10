@@ -29,7 +29,12 @@ class GeoIP{
   public function __construct(){
       if(isset($_SERVER['REMOTE_ADDR']))
           $this->ip = $_SERVER['REMOTE_ADDR'];
-          
+      
+
+      if(\App::environment() == 'local') {
+        $this->ip = \Config::get('laravel-4-freegeoip::local');
+      }
+
       // Check if an override for the current ip exists
       $overrides = \Config::get('laravel-4-freegeoip::overrides');
       if(isset($this->ip, $overrides))$this->ip = $overrides[$this->ip];
